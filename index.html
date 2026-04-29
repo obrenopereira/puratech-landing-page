@@ -141,7 +141,7 @@
 
         <div class="hero-buttons" style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
-            onclick="fbq('track', 'Lead')"
+            onclick="trackLead()"
             style="
           background: #3B72F5;
           color: white;
@@ -152,7 +152,7 @@
           text-decoration: none;
         ">Falar com especialista</a>
 
-          <a href="#solucoes" onclick="fbq('track', 'Lead')" style="
+          <a href="#solucoes" onclick="trackLead()" style="
           display: flex;
           align-items: center;
           gap: 8px;
@@ -431,7 +431,7 @@
 
         <!-- Right: CTA button -->
         <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
-          onclick="fbq('track', 'Lead')"
+          onclick="trackLead()"
           style="
           display: inline-block;
           background: linear-gradient(90deg, #0B64F4 0%, #06A1EF 100%);
@@ -1714,7 +1714,7 @@
             </div>
 
             <!-- Submit -->
-            <button type="submit" onclick="fbq('track', 'Lead')" style="
+            <button type="submit" onclick="trackLead()" style="
               width: fit-content;
               background: linear-gradient(135deg, #3B72F5 0%, #1535CC 100%);
               color: white;
@@ -1814,7 +1814,7 @@
           </h2>
 
           <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
-            onclick="fbq('track', 'Lead')"
+            onclick="trackLead()"
             style="
             display: inline-block;
             background: linear-gradient(135deg, #3B72F5 0%, #1535CC 100%);
@@ -1986,7 +1986,7 @@
 
     <!-- Button -->
     <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
-      target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" id="wa-btn" onclick="fbq('track', 'Lead')" style="
+      target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" id="wa-btn" onclick="trackLead()" style="
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2081,6 +2081,43 @@
       }
     }
   </style>
+
+  <script>
+    var META_PIXEL_ID = '993622573346248';
+    var META_ACCESS_TOKEN = 'EAANnyDrDWsYBRWB4TjlyBZBo12ZCZCR1fbZB2i4dmpZBSiMGKE4CSRW0fjwWnb5NC1wTZCpvcRnF72Lk2GchrtiHDwz5Yrg3qJue4W42qEeXc8dNwh9fvOcrYVVmYRPWZCcIKRJjfdArfj0o27st4cSLw6iZBLpZC0V3bXm7Yb5RMV97fRcZAUMBl7ie0IaT09EQZDZD';
+
+    function getCookie(name) {
+      var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      return match ? match[2] : undefined;
+    }
+
+    function trackLead() {
+      var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+
+      fbq('track', 'Lead', {}, { eventID: eventId });
+
+      var payload = {
+        data: [{
+          event_name: 'Lead',
+          event_time: Math.floor(Date.now() / 1000),
+          event_id: eventId,
+          event_source_url: window.location.href,
+          action_source: 'website',
+          user_data: {
+            client_user_agent: navigator.userAgent,
+            fbp: getCookie('_fbp'),
+            fbc: getCookie('_fbc')
+          }
+        }]
+      };
+
+      fetch('https://graph.facebook.com/v19.0/' + META_PIXEL_ID + '/events?access_token=' + META_ACCESS_TOKEN, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+  </script>
 
 </body>
 
