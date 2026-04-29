@@ -15,6 +15,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
 
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '993622573346248');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=993622573346248&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
     *,
     *::before,
@@ -123,6 +141,7 @@
 
         <div class="hero-buttons" style="display: flex; gap: 16px; flex-wrap: wrap;">
           <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
+            onclick="fbq('track', 'Lead')"
             style="
           background: #3B72F5;
           color: white;
@@ -133,7 +152,7 @@
           text-decoration: none;
         ">Falar com especialista</a>
 
-          <a href="#solucoes" style="
+          <a href="#solucoes" onclick="fbq('track', 'Lead')" style="
           display: flex;
           align-items: center;
           gap: 8px;
@@ -412,6 +431,7 @@
 
         <!-- Right: CTA button -->
         <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
+          onclick="fbq('track', 'Lead')"
           style="
           display: inline-block;
           background: linear-gradient(90deg, #0B64F4 0%, #06A1EF 100%);
@@ -1694,7 +1714,7 @@
             </div>
 
             <!-- Submit -->
-            <button type="submit" style="
+            <button type="submit" onclick="fbq('track', 'Lead')" style="
               width: fit-content;
               background: linear-gradient(135deg, #3B72F5 0%, #1535CC 100%);
               color: white;
@@ -1794,6 +1814,7 @@
           </h2>
 
           <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
+            onclick="fbq('track', 'Lead')"
             style="
             display: inline-block;
             background: linear-gradient(135deg, #3B72F5 0%, #1535CC 100%);
@@ -1965,7 +1986,7 @@
 
     <!-- Button -->
     <a href="https://wa.me/5531975087019?text=Ol%C3%A1!%20gostaria%20de%20saber%20um%20pouco%20mais%20sobre%20a%20puratech"
-      target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" id="wa-btn" style="
+      target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" id="wa-btn" onclick="fbq('track', 'Lead')" style="
         display: flex;
         align-items: center;
         justify-content: center;
